@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import OInput from "../UI/OInput.vue";
-import Ostepper from "../UI/OStepper.vue";
+import OInput from "@/UI/OInput.vue";
+import Ostepper from "@/UI/OStepper.vue";
 import { onMounted, ref } from "vue";
 import api from "@/services/api";
 
@@ -32,8 +32,7 @@ const fetchData = async () => {
   <div class="text-xl bg-blue underline">
     <OInput
       v-model="inputValue"
-      placeholder="Enter your name"
-      prependIcon="fas fa-user"
+      placeholder="username"
       :rules="[requiredRule, minLengthRule]"
     />
 

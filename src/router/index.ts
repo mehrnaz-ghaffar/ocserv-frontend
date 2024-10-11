@@ -1,13 +1,13 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import RegistrationForm from '@/components/authentiacate/registrationForm.vue';
+import { createRouter, createWebHistory } from "vue-router";
+import RegistrationForm from "@/components/authentiacate/components/registrationForm.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: RegistrationForm
+      path: "/",
+      name: "home",
+      component: RegistrationForm,
     },
     // {
     //   path: '/about',
@@ -17,7 +17,7 @@ const router = createRouter({
     //   // which is lazy-loaded when the route is visited.
     //   component: () => import('../views/AboutView.vue')
     // }
-  ]
-})
+  ],
+});
 
-export default router
+export default router;
