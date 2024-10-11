@@ -16,6 +16,7 @@
     "@apollo/client": "^3.10.4",
     "@vue/apollo-composable": "^4.0.2",
     "apollo-client": "^2.6.10",
+    "axios": "^1.7.7",
     "graphql": "^15.8.0",
     "graphql-tag": "^2.12.6",
     "pinia": "^2.1.7",
