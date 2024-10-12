@@ -6,10 +6,17 @@ interface Props {
   modelValue: string;
   placeholder?: string;
   prependIcon?: string;
+  inputType?: string;
   rules?: Array<(value: string) => string | boolean>;
+  isDisabled: boolean;
 }
 
-const props = defineProps<Props>();
+const props = withDefaults(defineProps<Props>(), {
+  modelValue: "",
+  placeholder: "",
+  inputType: "text",
+  isDisabled: false,
+});
 
 // Emits
 const emit = defineEmits<{
@@ -60,6 +67,7 @@ const updateValue = (value: string) => {
         :value="modelValue"
         @input="updateValue($event.target.value)"
         :placeholder="placeholder"
+        :disabled="isDisabled"
         :class="[
           'block w-full pl-10 pr-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm',
           error ? 'border-red-500 focus:ring-red-500' : 'border-gray-300',

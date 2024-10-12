@@ -3,6 +3,7 @@ import OInput from "@/UI/OInput.vue";
 import Ostepper from "@/UI/OStepper.vue";
 import { onMounted, ref } from "vue";
 import api from "@/services/api";
+import Login from "./loginForm.vue";
 
 defineProps<{
   //   msg: string
@@ -29,13 +30,21 @@ const fetchData = async () => {
 </script>
 
 <template>
-  <div class="text-xl bg-blue underline">
-    <OInput
+  <div class="max-w-sm mx-auto">
+    <!-- <OInput
       v-model="inputValue"
       placeholder="username"
       :rules="[requiredRule, minLengthRule]"
     />
 
-    <Ostepper />
+    <Ostepper /> -->
+
+    <form class="block">hii</form>
+
+    <span class="hidden md:block"
+      >hellllllllllllllllllllllllllllllooooooooooo</span
+    >
+
+    <Login />
   </div>
 </template>
