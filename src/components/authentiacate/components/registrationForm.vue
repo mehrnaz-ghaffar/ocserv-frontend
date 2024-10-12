@@ -11,6 +11,12 @@ defineProps<{
 
 const inputValue = ref("");
 
+const steps = [
+  { component: Login, props: {} },
+  { component: OInput, props: {} },
+  // Add more steps as needed
+];
+
 const requiredRule = (value: string) => {
   return value ? true : "This field is required";
 };
@@ -35,16 +41,16 @@ const fetchData = async () => {
       v-model="inputValue"
       placeholder="username"
       :rules="[requiredRule, minLengthRule]"
-    />
+    />-->
 
-    <Ostepper /> -->
+    <Ostepper :steps="steps" />
 
-    <form class="block">hii</form>
+    <!-- <form class="block">hii</form>
 
     <span class="hidden md:block"
       >hellllllllllllllllllllllllllllllooooooooooo</span
-    >
+    > -->
 
-    <Login />
+    <!-- <Login /> -->
   </div>
 </template>
