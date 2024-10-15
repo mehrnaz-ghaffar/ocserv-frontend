@@ -1,9 +1,31 @@
+<template>
+  <div>
+    <h1 class="mx-auto">Login</h1>
+
+    <div
+      v-for="(field, fieldIndex) in inputFields"
+      :key="fieldIndex"
+      class="mb-5"
+    >
+      <component
+        v-model="inputFields[fieldIndex].model"
+        :is="field.component"
+        :placeholder="field.placeholder"
+        :rules="field.rules"
+        :inputType="field.inputType"
+      >
+      </component>
+      {{ inputFields[fieldIndex].model }}
+    </div>
+  </div>
+</template>
+
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, ref, Ref, reactive, Reactive, computed, watch } from "vue";
 import OInput from "@/UI/OInput.vue";
 
-const username: string = "";
-const password: string = "";
+const username: Ref<string> = ref("");
+const password: Ref<string> = ref("");
 const requiredRule = (value: string) => {
   return value ? true : "This field is required";
 };
@@ -15,39 +37,21 @@ onMounted(() => {
   console.log(`login mounted.`);
 });
 
-const inputFields = [
+let inputFields = reactive([
   {
-    value: username,
+    model: username,
     rules: [requiredRule],
     placeholder: "enter username",
     component: OInput,
   },
   {
+    model: password,
     rules: [requiredRule, minLengthRule],
     placeholder: "******",
     component: OInput,
+    inputType: "password",
   },
-];
+]);
 </script>
-
-<template>
-  <div>
-    <h1>Login</h1>
-
-    <div
-      v-for="(field, fieldIndex) in inputFields"
-      :key="fieldIndex"
-      class="mb-5"
-    >
-      <component
-        v-model="field.value"
-        :is="field.component"
-        :placeholder="field.placeholder"
-        :rules="field.rules"
-      >
-      </component>
-    </div>
-  </div>
-</template>
 
 <style scoped></style>

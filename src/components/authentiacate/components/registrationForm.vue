@@ -18,7 +18,7 @@ const steps = [
 ];
 
 const requiredRule = (value: string) => {
-  return value ? true : "This field is required";
+  return Boolean(value) ? true : "This field is required";
 };
 
 const minLengthRule = (value: string) => {
