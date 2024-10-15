@@ -30,9 +30,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from "vue";
+import { computed, onMounted, watch } from "vue";
 
-const modelValue = defineModel("modelValue");
+const modelValue = defineModel<string>("modelValue");
 
 // Props
 interface Props {
@@ -56,24 +56,20 @@ const props = withDefaults(defineProps<Props>(), {
 
 // Internal state
 const error = computed(() => {
-  console.log("computed happening", modelValue);
-
   if (!props.rules || props.rules.length === 0) return false;
 
   for (const rule of props.rules) {
-    const result = rule(modelValue);
+    const result = rule(modelValue.value);
     if (result !== true) return true;
   }
   return false;
 });
 
 const errorMessage = computed(() => {
-  console.log("errorMessage happening", modelValue);
-
   if (!props.rules || props.rules.length === 0) return "";
 
   for (const rule of props.rules) {
-    const result = rule(modelValue);
+    const result = rule(modelValue.value);
     if (typeof result === "string") return result;
   }
   return "";

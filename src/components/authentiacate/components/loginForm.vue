@@ -15,7 +15,6 @@
         :inputType="field.inputType"
       >
       </component>
-      {{ inputFields[fieldIndex].model }}
     </div>
   </div>
 </template>
