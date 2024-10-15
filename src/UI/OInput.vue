@@ -66,7 +66,7 @@ const error = computed(() => {
 });
 
 const errorMessage = computed(() => {
-  if (!props.rules || props.rules.length === 0) return "";
+  if (!props.rules || props.rules.length === 0 || props.isDisabled) return "";
 
   for (const rule of props.rules) {
     const result = rule(modelValue.value);

@@ -16,15 +16,20 @@
       >
       </component>
     </div>
+
+    {{ inputFields[2].model }}
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref, Ref, reactive, Reactive, computed, watch } from "vue";
 import OInput from "@/UI/OInput.vue";
+import OTextAre from "@/UI/OTextArea.vue";
 
 const username: Ref<string> = ref("");
 const password: Ref<string> = ref("");
+const description: Ref<string> = ref("");
+
 const requiredRule = (value: string) => {
   return value ? true : "This field is required";
 };
@@ -49,6 +54,12 @@ let inputFields = reactive([
     placeholder: "******",
     component: OInput,
     inputType: "password",
+  },
+  {
+    model: description,
+    rules: [requiredRule],
+    placeholder: "enter description",
+    component: OTextAre,
   },
 ]);
 </script>
