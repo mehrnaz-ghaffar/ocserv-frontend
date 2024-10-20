@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineEmits, watch } from "vue";
+import { computed, watch } from "vue";
 
 // Define props for TextArea component
 interface Props {
