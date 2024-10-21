@@ -4,6 +4,7 @@ import Ostepper from "@/UI/OStepper.vue";
 import { onMounted, ref } from "vue";
 import api from "@/services/api";
 import Login from "./loginForm.vue";
+import ConfigurationForm from "@/components/configuration/components/configurationForm.vue";
 
 defineProps<{
   //   msg: string
@@ -13,7 +14,7 @@ const inputValue = ref("");
 
 const steps = [
   { component: Login, props: {} },
-  { component: OInput, props: {} },
+  { component: ConfigurationForm, props: {} },
   // Add more steps as needed
 ];
 

@@ -19,6 +19,7 @@
           'block w-full pl-10 pr-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm',
           error ? 'border-red-500 focus:ring-red-500' : 'border-gray-300',
         ]"
+        :min="minNumber"
         :type="inputType"
       />
       <!-- Error Message -->
@@ -39,6 +40,7 @@ interface Props {
   placeholder?: string;
   prependIcon?: string;
   inputType?: string;
+  minNumber?: number;
   rules?: Array<(value: string) => string | boolean>;
   isDisabled: boolean;
 }
@@ -46,6 +48,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   placeholder: "",
   inputType: "text",
+  minNumber: 0,
   isDisabled: false,
 });
 

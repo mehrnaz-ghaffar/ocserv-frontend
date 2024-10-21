@@ -16,8 +16,6 @@
       >
       </component>
     </div>
-
-    {{ inputFields[2].model }}
   </div>
 </template>
 
