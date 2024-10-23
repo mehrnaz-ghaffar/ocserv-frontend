@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1 class="mx-auto">Login</h1>
+    <h1 class="mx-auto">{{ $t("Login") }}</h1>
+    sdfdsfds
 
     <div
       v-for="(field, fieldIndex) in inputFields"
