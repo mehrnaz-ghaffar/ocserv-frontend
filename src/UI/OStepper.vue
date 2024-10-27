@@ -5,17 +5,16 @@
         v-for="(step, index) in steps"
         :key="index"
         class="flex w-full items-center"
-        :class="
-          index < currentStep
-            ? 'text-blue-600 dark:text-blue-500'
-            : 'text-gray-500 dark:text-gray-700'
-        "
+        :class="{
+          'text-orange-500': index <= currentStep,
+          'text-gray-500': index > currentStep,
+        }"
       >
         <div
-          class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0"
+          class="flex items-center justify-center w-10 h-10 bg-gray-800 rounded-full lg:h-12 lg:w-12 shrink-0"
         >
           <svg
-            class="w-4 h-4 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300"
+            class="w-5 h-5 text-orange-500 lg:w-6 lg:h-6"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -26,18 +25,16 @@
             />
           </svg>
         </div>
+        <!-- Line Between Steps -->
         <div
-          class="after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block dark:after:border-gray-700"
+          v-if="index < steps.length - 1"
+          class="flex-1 h-1 bg-gray-800"
+          :class="{ 'bg-orange-500': index < currentStep }"
         ></div>
       </li>
     </ol>
 
     <form @submit.prevent="handleSubmit">
-      <h3
-        class="mb-4 text-lg font-medium leading-none text-gray-900 dark:text-white"
-      >
-        Invoice details
-      </h3>
       <transition name="fade" mode="out-in">
         <component
           :is="steps[currentStep].component"
@@ -50,7 +47,7 @@
           v-if="currentStep > 0"
           type="button"
           @click="currentStep--"
-          class="text-gray-700 bg-gray-200 hover:bg-gray-300 font-medium rounded-lg text-sm px-4 py-2"
+          class="text-white bg-gray-700 hover:bg-gray-800 font-medium rounded-lg text-sm px-4 py-2"
         >
           Back
         </button>
@@ -60,7 +57,7 @@
 
         <button
           type="submit"
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          class="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:ring-orange-400 font-medium rounded-lg text-sm px-5 py-2.5"
         >
           {{
             currentStep.value === props.steps.length - 1
