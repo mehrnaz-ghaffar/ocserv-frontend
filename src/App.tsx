@@ -1,4 +1,3 @@
-import { useState } from "react";
 import OStepper from "./UI/Stepper/OStepper";
 
 function Test1() {
